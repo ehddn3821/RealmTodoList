@@ -17,20 +17,14 @@ class Todo: Object {
         return "id"
     }
     
-    convenience init(todo: String) {
-        self.init()
-        self.id = autoIncrementId()
-        self.todo = todo
-    }
-    
     // PrimaryKey AutoIncrement
     func autoIncrementId() -> Int {
         let realm = try! Realm()
         
-        if let retNext = realm.objects(Todo.self).sorted(byKeyPath: "id").first?.id {
+        if let retNext = realm.objects(Todo.self).sorted(byKeyPath: "id").last?.id {
             return retNext + 1
         } else {
-            return 1
+            return 0
         }
     }
 }

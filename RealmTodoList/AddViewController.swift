@@ -26,7 +26,11 @@ class AddViewController: UIViewController {
     
     // Add Todo
     @IBAction func saveClicked(_ sender: UIBarButtonItem) {
-        let todo = Todo(todo: todoTextView.text)
+        let todo = Todo(value: [
+            "id" : Todo().autoIncrementId(),
+            "todo" : todoTextView.text!,
+            "reg_date" : Date()
+        ])
         
         try! realm.write {
             realm.add(todo)

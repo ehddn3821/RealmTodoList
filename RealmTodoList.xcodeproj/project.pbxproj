@@ -9,25 +9,25 @@
 /* Begin PBXBuildFile section */
 		350DCF9225D120BB000C593F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 350DCF9125D120BB000C593F /* AppDelegate.swift */; };
 		350DCF9425D120BB000C593F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 350DCF9325D120BB000C593F /* SceneDelegate.swift */; };
-		350DCF9625D120BB000C593F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 350DCF9525D120BB000C593F /* ViewController.swift */; };
 		350DCF9925D120BB000C593F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 350DCF9725D120BB000C593F /* Main.storyboard */; };
 		350DCF9B25D120BC000C593F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 350DCF9A25D120BC000C593F /* Assets.xcassets */; };
 		350DCF9E25D120BC000C593F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 350DCF9C25D120BC000C593F /* LaunchScreen.storyboard */; };
 		350DCFA925D1219A000C593F /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 350DCFA825D1219A000C593F /* Realm */; };
 		350DCFAB25D1219A000C593F /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 350DCFAA25D1219A000C593F /* RealmSwift */; };
 		350DCFB525D13876000C593F /* TodoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 350DCFB425D13876000C593F /* TodoModel.swift */; };
+		350DCFBA25D159B2000C593F /* TodoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 350DCFB925D159B2000C593F /* TodoTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		350DCF8E25D120BB000C593F /* RealmTodoList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RealmTodoList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		350DCF9125D120BB000C593F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		350DCF9325D120BB000C593F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		350DCF9525D120BB000C593F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		350DCF9825D120BB000C593F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		350DCF9A25D120BC000C593F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		350DCF9D25D120BC000C593F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		350DCF9F25D120BC000C593F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		350DCFB425D13876000C593F /* TodoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoModel.swift; sourceTree = "<group>"; };
+		350DCFB925D159B2000C593F /* TodoTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,8 +64,8 @@
 			children = (
 				350DCFB325D13847000C593F /* Models */,
 				350DCFB025D13833000C593F /* AppDelegate */,
-				350DCF9525D120BB000C593F /* ViewController.swift */,
 				350DCF9725D120BB000C593F /* Main.storyboard */,
+				350DCFB925D159B2000C593F /* TodoTableViewController.swift */,
 				350DCF9A25D120BC000C593F /* Assets.xcassets */,
 				350DCF9C25D120BC000C593F /* LaunchScreen.storyboard */,
 				350DCF9F25D120BC000C593F /* Info.plist */,
@@ -167,8 +167,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				350DCF9625D120BB000C593F /* ViewController.swift in Sources */,
 				350DCFB525D13876000C593F /* TodoModel.swift in Sources */,
+				350DCFBA25D159B2000C593F /* TodoTableViewController.swift in Sources */,
 				350DCF9225D120BB000C593F /* AppDelegate.swift in Sources */,
 				350DCF9425D120BB000C593F /* SceneDelegate.swift in Sources */,
 			);

@@ -10,6 +10,8 @@ import RealmSwift
 
 class TodoTableViewController: UITableViewController {
     
+    let realm = try! Realm()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -29,4 +31,5 @@ class TodoTableViewController: UITableViewController {
         cell.textLabel?.text = "Todo Test"
         return cell
     }
+    
 }

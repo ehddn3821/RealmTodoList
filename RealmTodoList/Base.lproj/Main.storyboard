@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -17,12 +18,28 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="63" id="Z0T-BP-xwO">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" textLabel="R3s-HU-xM6" detailTextLabel="F2L-gW-wz1" rowHeight="63" style="IBUITableViewCellStyleSubtitle" id="Z0T-BP-xwO">
                                 <rect key="frame" x="0.0" y="28" width="428" height="63"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Z0T-BP-xwO" id="Et6-HF-50R">
                                     <rect key="frame" x="0.0" y="0.0" width="428" height="63"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="R3s-HU-xM6">
+                                            <rect key="frame" x="20" y="11.999999999999998" width="33" height="20.333333333333332"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="F2L-gW-wz1">
+                                            <rect key="frame" x="19.999999999999996" y="35.333333333333329" width="43.666666666666664" height="14.333333333333334"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
@@ -31,11 +48,62 @@
                             <outlet property="delegate" destination="m8v-kl-auL" id="cm9-Gq-Ejg"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="TodoList" id="yqg-tU-QLl"/>
+                    <navigationItem key="navigationItem" title="TodoList" id="cXF-0F-DPU">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="YXz-ru-GW7">
+                            <connections>
+                                <segue destination="Wda-HB-txJ" kind="showDetail" id="Rh8-qY-NmD"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FAV-RL-f6d" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="730.37383177570086" y="115.98272138228943"/>
+        </scene>
+        <!--Add Todo-->
+        <scene sceneID="Ohh-Qe-wTd">
+            <objects>
+                <viewController id="hkO-ds-F8w" customClass="AddViewController" customModule="RealmTodoList" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="4gb-vm-rXl">
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="L9Z-bw-rVh">
+                                <rect key="frame" x="0.0" y="88" width="428" height="804"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="PtL-yX-6hO"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="PtL-yX-6hO" firstAttribute="bottom" secondItem="L9Z-bw-rVh" secondAttribute="bottom" id="507-bg-9Ln"/>
+                            <constraint firstItem="L9Z-bw-rVh" firstAttribute="top" secondItem="PtL-yX-6hO" secondAttribute="top" id="79s-x4-G9o"/>
+                            <constraint firstItem="L9Z-bw-rVh" firstAttribute="leading" secondItem="PtL-yX-6hO" secondAttribute="leading" id="Rwq-XT-dNf"/>
+                            <constraint firstItem="PtL-yX-6hO" firstAttribute="trailing" secondItem="L9Z-bw-rVh" secondAttribute="trailing" id="S6v-4X-ypp"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Add Todo" id="tqD-sx-6S8">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Xfm-2z-dS1">
+                            <connections>
+                                <action selector="cancelClicked:" destination="hkO-ds-F8w" id="cBB-Zy-4p1"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="jaS-C4-PmS">
+                            <connections>
+                                <action selector="saveClicked:" destination="hkO-ds-F8w" id="kdN-aG-iIO"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="todoTextView" destination="L9Z-bw-rVh" id="V0b-8d-SrE"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="omY-B2-slE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2522" y="116"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="xVq-6Z-0VP">
@@ -55,8 +123,29 @@
             </objects>
             <point key="canvasLocation" x="-169.62616822429905" y="115.98272138228943"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="W8E-OE-TqI">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Wda-HB-txJ" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="8xr-Wc-1eB">
+                        <rect key="frame" x="0.0" y="44" width="428" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="hkO-ds-F8w" kind="relationship" relationship="rootViewController" id="VIs-QG-qMb"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kQl-mO-UyE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1628" y="116"/>
+        </scene>
     </scenes>
     <resources>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

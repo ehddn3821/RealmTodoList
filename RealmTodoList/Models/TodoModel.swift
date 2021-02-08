@@ -17,6 +17,12 @@ class Todo: Object {
         return "id"
     }
     
+    convenience init(todo: String) {
+        self.init()
+        self.id = autoIncrementId()
+        self.todo = todo
+    }
+    
     // PrimaryKey AutoIncrement
     func autoIncrementId() -> Int {
         let realm = try! Realm()

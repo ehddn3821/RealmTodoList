@@ -16,6 +16,7 @@
 		350DCFAB25D1219A000C593F /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 350DCFAA25D1219A000C593F /* RealmSwift */; };
 		350DCFB525D13876000C593F /* TodoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 350DCFB425D13876000C593F /* TodoModel.swift */; };
 		350DCFBA25D159B2000C593F /* TodoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 350DCFB925D159B2000C593F /* TodoTableViewController.swift */; };
+		350DCFBD25D15F06000C593F /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 350DCFBC25D15F06000C593F /* AddViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		350DCF9F25D120BC000C593F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		350DCFB425D13876000C593F /* TodoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoModel.swift; sourceTree = "<group>"; };
 		350DCFB925D159B2000C593F /* TodoTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoTableViewController.swift; sourceTree = "<group>"; };
+		350DCFBC25D15F06000C593F /* AddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +71,7 @@
 				350DCF9A25D120BC000C593F /* Assets.xcassets */,
 				350DCF9C25D120BC000C593F /* LaunchScreen.storyboard */,
 				350DCF9F25D120BC000C593F /* Info.plist */,
+				350DCFBC25D15F06000C593F /* AddViewController.swift */,
 			);
 			path = RealmTodoList;
 			sourceTree = "<group>";
@@ -167,6 +170,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				350DCFBD25D15F06000C593F /* AddViewController.swift in Sources */,
 				350DCFB525D13876000C593F /* TodoModel.swift in Sources */,
 				350DCFBA25D159B2000C593F /* TodoTableViewController.swift in Sources */,
 				350DCF9225D120BB000C593F /* AppDelegate.swift in Sources */,

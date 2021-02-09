@@ -57,4 +57,26 @@ class TodoTableViewController: UITableViewController {
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let alert = UIAlertController(title: "삭제하시겠습니까?", message: "", preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "OK", style: .default) { [self] (UIAlertAction) in
+                if let item = list?[indexPath.row] {
+                    try! realm.write {
+                        realm.delete(item)
+                    }
+                    tableView.deleteRows(at: [indexPath], with: .automatic)
+                }
+            }
+            alert.addAction(okAction)
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+            alert.addAction(cancelAction)
+            present(alert, animated: true, completion: nil)
+        }
+    }
+    
 }

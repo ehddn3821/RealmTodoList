@@ -11,7 +11,8 @@ import RealmSwift
 class Todo: Object {
     @objc dynamic var id: Int = 0  // PK
     @objc dynamic var todo: String = ""  // todo(NN)
-    @objc dynamic var reg_date: Date = Date()  // 등록일(NN)
+    @objc dynamic var regDate: Date = Date()  // 등록일(NN)
+    @objc dynamic var isComplete: Bool = false  // 완료체크(NN)
     
     override static func primaryKey() -> String? {
         return "id"

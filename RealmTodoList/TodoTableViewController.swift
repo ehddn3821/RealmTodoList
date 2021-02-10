@@ -44,15 +44,33 @@ class TodoTableViewController: UITableViewController {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TodoTableViewCell
         
-        // Todo
-        cell.todoLabel.text = list[indexPath.row].todo
-        
         // 등록일 YY/MM/dd 형식으로 포멧
-        let regDate: Date = list[indexPath.row].reg_date
+        let regDate: Date = list[indexPath.row].regDate
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "YYYY년 MM월 dd일"
         
         cell.regDateLabel.text = dateFormatter.string(from: regDate)
+        
+        // isComplete가 true면 checkMark와 취소선
+        if list[indexPath.row].isComplete == true {
+            cell.checkMark.image = UIImage(systemName: "checkmark.circle")
+            
+            // 취소선 긋기
+            let attributeString = NSMutableAttributedString(string: cell.todoLabel.text!)
+            attributeString.addAttribute(NSAttributedString.Key.strikethroughStyle,
+                                         value: 2,
+                                         range: NSMakeRange(0, attributeString.length))
+            cell.todoLabel.attributedText = attributeString
+            
+        } else {
+            cell.checkMark.image = UIImage(systemName: "circle")
+            
+            // 취소선 없애기 및 todoLabel에 데이터 넣기
+            let attributeString = NSMutableAttributedString(attributedString: cell.todoLabel.attributedText!)
+            attributeString.setAttributes([:], range: NSMakeRange(0, attributeString.length))
+            cell.todoLabel?.attributedText = attributeString
+            cell.todoLabel?.attributedText = NSMutableAttributedString(string: list[indexPath.row].todo, attributes: [:])
+        }
         
         return cell
     }
@@ -76,6 +94,21 @@ class TodoTableViewController: UITableViewController {
             let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
             alert.addAction(cancelAction)
             present(alert, animated: true, completion: nil)
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        if list[indexPath.row].isComplete == false {
+            try! realm.write {
+                list[indexPath.row].isComplete = true
+            }
+            NotificationCenter.default.post(name: AddViewController.newTodoDisInsert, object: nil)
+        } else {
+            try! realm.write {
+                list[indexPath.row].isComplete = false
+            }
+            NotificationCenter.default.post(name: AddViewController.newTodoDisInsert, object: nil)
         }
     }
     

@@ -41,7 +41,7 @@ class AddViewController: UIViewController {
         let newTodo = Todo(value: [
             "id" : Todo().autoIncrementId(),
             "todo" : todoTextView.text!,
-            "reg_date" : Date()
+            "regDate" : Date()
         ])
         
         try! realm.write {

@@ -2,7 +2,7 @@
 
 Realm을 이용한 간단한 TodoList 입니다!
 
-![IMG_0224](https://user-images.githubusercontent.com/55382624/107468434-44a25100-6bab-11eb-812d-2fc2f592b22d.PNG)
+![IMG_0224 2](https://user-images.githubusercontent.com/55382624/107468558-7ddac100-6bab-11eb-8a10-46cffaa90753.PNG)
 
 ### Todo 추가
 ### 스와이프를 이용한 Todo 삭제

@@ -39,7 +39,7 @@ class TodoTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return list.count
     }
-
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TodoTableViewCell
@@ -56,31 +56,20 @@ class TodoTableViewController: UITableViewController {
             cell.checkMark.image = UIImage(systemName: "checkmark.circle")
             
             // 취소선 긋기
-            let attributeString = NSMutableAttributedString(string: cell.todoLabel.text!)
-            attributeString.addAttribute(NSAttributedString.Key.strikethroughStyle,
-                                         value: 2,
-                                         range: NSMakeRange(0, attributeString.length))
-            cell.todoLabel.attributedText = attributeString
+            cell.todoLabel?.attributedText = NSMutableAttributedString(string: list[indexPath.row].todo, attributes: [NSAttributedString.Key.strikethroughStyle:2])
             
         } else {
             cell.checkMark.image = UIImage(systemName: "circle")
             
-            // 취소선 없애기 및 todoLabel에 데이터 넣기
-            let attributeString = NSMutableAttributedString(attributedString: cell.todoLabel.attributedText!)
-            attributeString.setAttributes([:], range: NSMakeRange(0, attributeString.length))
-            cell.todoLabel?.attributedText = attributeString
+            // 취소선 없애기
             cell.todoLabel?.attributedText = NSMutableAttributedString(string: list[indexPath.row].todo, attributes: [:])
         }
         
         return cell
     }
     
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
+    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let action = UIContextualAction(style: .normal, title: nil) { [self] (action, view, completion) in
             let alert = UIAlertController(title: "삭제하시겠습니까?", message: "", preferredStyle: .alert)
             let okAction = UIAlertAction(title: "OK", style: .default) { [self] (UIAlertAction) in
                 if let item = list?[indexPath.row] {
@@ -94,7 +83,15 @@ class TodoTableViewController: UITableViewController {
             let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
             alert.addAction(cancelAction)
             present(alert, animated: true, completion: nil)
+            completion(true)
         }
+        
+        action.backgroundColor = .systemRed
+        action.image = UIImage(systemName: "trash.fill")
+        
+        let configuration = UISwipeActionsConfiguration(actions: [action])
+        configuration.performsFirstActionWithFullSwipe = false
+        return configuration
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

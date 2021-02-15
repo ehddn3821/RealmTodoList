@@ -24,7 +24,7 @@ class TodoTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        list = realm.objects(Todo.self)
+        list = realm.objects(Todo.self).sorted(byKeyPath: "isFavorite", ascending: false)
         
         token = NotificationCenter.default.addObserver(forName: AddViewController.newTodoDisInsert, object: nil, queue: OperationQueue.main) { [weak self] (noti) in
             self?.tableView.reloadData()
@@ -65,6 +65,12 @@ class TodoTableViewController: UITableViewController {
             cell.todoLabel?.attributedText = NSMutableAttributedString(string: list[indexPath.row].todo, attributes: [:])
         }
         
+        if list[indexPath.row].isFavorite == true {
+            cell.starMark.image = UIImage(systemName: "star.fill")
+        } else {
+            cell.starMark.image = UIImage(systemName: "star.slash")
+        }
+        
         return cell
     }
     
@@ -92,6 +98,54 @@ class TodoTableViewController: UITableViewController {
         let configuration = UISwipeActionsConfiguration(actions: [action])
         configuration.performsFirstActionWithFullSwipe = false
         return configuration
+    }
+    
+    override func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        
+        if list[indexPath.row].isFavorite == false {
+            let action = UIContextualAction(style: .normal, title: nil) { [self] (action, view, completion) in
+                let alert = UIAlertController(title: "즐겨찾기에 추가 됐습니다.", message: "", preferredStyle: .alert)
+                
+                try! realm.write {
+                    list[indexPath.row].isFavorite = true
+                }
+                let okAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+                alert.addAction(okAction)
+                present(alert, animated: true, completion: nil)
+                completion(true)
+                NotificationCenter.default.post(name: AddViewController.newTodoDisInsert, object: nil)
+            }
+            
+            action.backgroundColor = .blue
+            action.image = UIImage(systemName: "star.fill")
+            
+            let configuration = UISwipeActionsConfiguration(actions: [action])
+            configuration.performsFirstActionWithFullSwipe = false
+            
+            return configuration
+            
+        } else {
+            let action = UIContextualAction(style: .normal, title: nil) { [self] (action, view, completion) in
+                let alert = UIAlertController(title: "즐겨찾기가 해제 됐습니다.", message: "", preferredStyle: .alert)
+                
+                try! realm.write {
+                    list[indexPath.row].isFavorite = false
+                }
+                let okAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+                alert.addAction(okAction)
+                present(alert, animated: true, completion: nil)
+                completion(true)
+                NotificationCenter.default.post(name: AddViewController.newTodoDisInsert, object: nil)
+            }
+            
+            action.backgroundColor = .blue
+            action.image = UIImage(systemName: "star.slash.fill")
+            
+            let configuration = UISwipeActionsConfiguration(actions: [action])
+            configuration.performsFirstActionWithFullSwipe = false
+            
+            return configuration
+        }
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

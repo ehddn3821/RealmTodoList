@@ -13,6 +13,7 @@ class Todo: Object {
     @objc dynamic var todo: String = ""  // todo(NN)
     @objc dynamic var regDate: Date = Date()  // 등록일(NN)
     @objc dynamic var isComplete: Bool = false  // 완료체크(NN)
+    @objc dynamic var isFavorite: Bool = false  // 즐겨찾기(NN)
     
     override static func primaryKey() -> String? {
         return "id"

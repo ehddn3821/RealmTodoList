@@ -34,10 +34,10 @@
                                             </constraints>
                                         </imageView>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="eCh-Ld-giq">
-                                            <rect key="frame" x="65" y="11" width="343" height="167"/>
+                                            <rect key="frame" x="65" y="11" width="306" height="167"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tkk-HD-dcu">
-                                                    <rect key="frame" x="0.0" y="0.0" width="343" height="30"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="306" height="30"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="30" id="ruW-zm-ezG"/>
                                                     </constraints>
@@ -46,26 +46,37 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qlR-Nx-6MU">
-                                                    <rect key="frame" x="0.0" y="37" width="343" height="130"/>
+                                                    <rect key="frame" x="0.0" y="37" width="306" height="130"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <color key="textColor" systemColor="secondaryLabelColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                         </stackView>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="gdx-5T-SsK">
+                                            <rect key="frame" x="383" y="81.666666666666671" width="25" height="24.666666666666671"/>
+                                            <color key="tintColor" systemColor="labelColor"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="25" id="ZCL-ht-kyD"/>
+                                                <constraint firstAttribute="width" constant="25" id="wRB-Xb-VLb"/>
+                                            </constraints>
+                                        </imageView>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="eCh-Ld-giq" firstAttribute="leading" secondItem="0dJ-3W-8aL" secondAttribute="trailing" constant="20" id="1BP-jW-V8F"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="eCh-Ld-giq" secondAttribute="trailing" id="Tus-J6-py5"/>
+                                        <constraint firstItem="gdx-5T-SsK" firstAttribute="centerY" secondItem="Et6-HF-50R" secondAttribute="centerY" id="EPo-gy-ooo"/>
+                                        <constraint firstItem="gdx-5T-SsK" firstAttribute="leadingMargin" secondItem="eCh-Ld-giq" secondAttribute="trailing" constant="20" id="Tus-J6-py5"/>
                                         <constraint firstItem="0dJ-3W-8aL" firstAttribute="leading" secondItem="Et6-HF-50R" secondAttribute="leading" constant="20" id="c5a-H4-7NY"/>
                                         <constraint firstItem="eCh-Ld-giq" firstAttribute="top" secondItem="Et6-HF-50R" secondAttribute="topMargin" id="fL1-cV-hkN"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="eCh-Ld-giq" secondAttribute="bottom" id="k8z-Bb-yPJ"/>
+                                        <constraint firstAttribute="trailing" secondItem="gdx-5T-SsK" secondAttribute="trailing" constant="20" id="mFA-kQ-Ydq"/>
                                         <constraint firstItem="0dJ-3W-8aL" firstAttribute="centerY" secondItem="Et6-HF-50R" secondAttribute="centerY" id="uth-gM-jxA"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="checkMark" destination="0dJ-3W-8aL" id="GAT-NF-8L8"/>
                                     <outlet property="regDateLabel" destination="qlR-Nx-6MU" id="m1i-6B-KJb"/>
+                                    <outlet property="starMark" destination="gdx-5T-SsK" id="F6k-vC-VEy"/>
                                     <outlet property="todoLabel" destination="tkk-HD-dcu" id="0Bm-fX-m24"/>
                                 </connections>
                             </tableViewCell>
@@ -171,6 +182,7 @@
     </scenes>
     <resources>
         <image name="circle" catalog="system" width="128" height="121"/>
+        <image name="star.fill" catalog="system" width="128" height="116"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

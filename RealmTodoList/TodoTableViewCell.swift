@@ -12,5 +12,6 @@ class TodoTableViewCell: UITableViewCell {
     @IBOutlet var todoLabel: UILabel!
     @IBOutlet var regDateLabel: UILabel!
     @IBOutlet var checkMark: UIImageView!
+    @IBOutlet var starMark: UIImageView!
     
 }
